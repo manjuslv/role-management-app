@@ -1,0 +1,14 @@
+# Spring Boot
+role-api/target/
+role-api/.mvn/
+*.class
+*.jar
+
+# Angular
+role-frontend/node_modules/
+role-frontend/dist/
+role-frontend/.angular/
+
+# Environment
+.env
+*.txt
