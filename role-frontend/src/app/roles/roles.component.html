@@ -1,0 +1,73 @@
+<div style="max-width:700px; margin:40px auto; font-family:sans-serif">
+
+  <!-- Header with logout -->
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px">
+    <h2>Role Management</h2>
+    <button
+      (click)="logout()"
+      style="padding:8px 16px; background:#dc3545; color:white; border:none; border-radius:4px; cursor:pointer">
+      Logout
+    </button>
+  </div>
+
+  <!-- Form -->
+  <div style="background:#f5f5f5; padding:20px; border-radius:8px; margin-bottom:20px">
+    <h3>{{ editingId ? 'Edit Role' : 'Add Role' }}</h3>
+
+    <input
+      [(ngModel)]="form.username"
+      placeholder="Username"
+      style="display:block; padding:8px; width:100%; margin-bottom:10px; box-sizing:border-box"/>
+
+    <input
+      [(ngModel)]="form.rolename"
+      placeholder="Role Name"
+      style="display:block; padding:8px; width:100%; margin-bottom:10px; box-sizing:border-box"/>
+
+    <button
+      (click)="save()"
+      style="padding:8px 16px; background:#007bff; color:white; border:none; border-radius:4px; cursor:pointer">
+      {{ editingId ? 'Update' : 'Add' }}
+    </button>
+
+    <button
+      *ngIf="editingId"
+      (click)="reset()"
+      style="padding:8px 16px; margin-left:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer">
+      Cancel
+    </button>
+  </div>
+
+  <!-- Table -->
+  <table style="width:100%; border-collapse:collapse">
+    <thead>
+      <tr style="background:#007bff; color:white">
+        <th style="padding:10px">ID</th>
+        <th style="padding:10px">Username</th>
+        <th style="padding:10px">Role Name</th>
+        <th style="padding:10px">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let role of roles"
+          style="border-bottom:1px solid #ddd; text-align:center">
+        <td style="padding:10px">{{ role.id }}</td>
+        <td style="padding:10px">{{ role.username }}</td>
+        <td style="padding:10px">{{ role.rolename }}</td>
+        <td style="padding:10px">
+          <button
+            (click)="edit(role)"
+            style="padding:4px 10px; background:#ffc107; border:none; border-radius:4px; cursor:pointer; margin-right:4px">
+            Edit
+          </button>
+          <button
+            (click)="delete(role.id!)"
+            style="padding:4px 10px; background:#dc3545; color:white; border:none; border-radius:4px; cursor:pointer">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

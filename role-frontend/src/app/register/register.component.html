@@ -1,0 +1,45 @@
+<div style="max-width:400px; margin:100px auto; font-family:sans-serif">
+  <div style="background:#f5f5f5; padding:30px; border-radius:8px">
+
+    <h2 style="text-align:center; margin-bottom:20px">Register</h2>
+
+    <!-- Success message -->
+    <div *ngIf="successMessage"
+         style="background:#d4edda; color:#155724; padding:10px; border-radius:4px; margin-bottom:15px">
+      {{ successMessage }}
+    </div>
+
+    <!-- Error message -->
+    <div *ngIf="errorMessage"
+         style="background:#f8d7da; color:#721c24; padding:10px; border-radius:4px; margin-bottom:15px">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Username -->
+    <input
+      [(ngModel)]="username"
+      placeholder="Username"
+      style="display:block; width:100%; padding:10px; margin-bottom:10px; border:1px solid #ddd; border-radius:4px; box-sizing:border-box"/>
+
+    <!-- Password -->
+    <input
+      [(ngModel)]="password"
+      type="password"
+      placeholder="Password"
+      style="display:block; width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd; border-radius:4px; box-sizing:border-box"/>
+
+    <!-- Register button -->
+    <button
+      (click)="register()"
+      style="width:100%; padding:10px; background:#28a745; color:white; border:none; border-radius:4px; cursor:pointer; font-size:16px">
+      Register
+    </button>
+
+    <!-- Login link -->
+    <p style="text-align:center; margin-top:15px">
+      Already have an account?
+      <a href="/login" style="color:#007bff">Login</a>
+    </p>
+
+  </div>
+</div>
